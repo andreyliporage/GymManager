@@ -1,0 +1,13 @@
+{
+  "instructors": [
+    {
+      "id": "2",
+      "avatar_url": "https://scontent.frec8-1.fna.fbcdn.net/v/t1.0-9/15439845_10211384687603647_3600953941878774796_n.jpg?_nc_cat=103&_nc_sid=7aed08&_nc_ohc=5rogwKGLHHkAX8ggPVt&_nc_ht=scontent.frec8-1.fna&oh=6eb5606b5df7b11b8109bb7e1be82af4&oe=5EAAD558",
+      "name": "Sthefane Azevedo dos Santos Silva",
+      "birth": 816307200000,
+      "gender": "F",
+      "services": "Zumba, Crossfit, Corrida, Natação, Triatlo, Pentatlo Moderno",
+      "created_at": 1585751225525
+    }
+  ]
+}
