@@ -2,6 +2,10 @@ const fs = require('fs') // para guardar os dados
 const data = require('./data.json')
 const {age, date} = require('./utils')
 
+exports.index = function(req, res) {
+    return res.render("instructors/index", {instructors: data.instructors})
+}
+
 exports.show = function(req, res) {
     //req.params
     const {id} = req.params // desestruturação
@@ -94,6 +98,7 @@ exports.put = function(req, res) {
         ...foundInstructor,
         ...req.body,
         birth: Date.parse(req.body.birth),
+        id: Number(req.body.id)
     }
 
     data.instructors[index] = instructor
