@@ -1,6 +1,6 @@
 const fs = require('fs') // para guardar os dados 
-const data = require('./data.json')
-const {age, date} = require('./utils')
+const data = require('../data.json')
+const {age, date} = require('../utils')
 
 exports.index = function(req, res) {
     return res.render("instructors/index", {instructors: data.instructors})
@@ -79,6 +79,10 @@ exports.edit =  function(req, res) {
     }
 
     return res.render("instructors/edit", {instructor})
+}
+
+exports.create = function(req, res) {
+    return res.render('instructors/create')
 }
 
 exports.put = function(req, res) {
