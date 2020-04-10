@@ -19,7 +19,6 @@ exports.show = function(req, res) {
     const member = {
         ...foundMember, // espalhando o foundMember dentro do objeto (spread operator)
         age: age(foundMember.birth),
-        services: foundMember.services.split(","),
     }
 
     return res.render("members/show", {member})
@@ -40,28 +39,20 @@ exports.post = function(req, res) {
         if (req.body[key] == "") {
             return res.send("Preencha todos os campos")
         }
+    }   
+
+    birth = Date.parse(req.body.birth)
+    let id = 1
+    const lastId = data.members[data.members.length - 1]
+
+    if (lastId) {
+        id = lastId + 1
     }
 
-    let {
-        avatar_url,
-        birth,
-        name, 
-        services, 
-        gender
-    } = req.body
-
-    birth = Date.parse(birth)
-    const created_at = Date.now()
-    const id = Number(data.members.length + 1)
-
     data.members.push({
+        ...req.body,
         id,
-        avatar_url,
-        name,
         birth,
-        gender,
-        services,
-        created_at,
     })
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
