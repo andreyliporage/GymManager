@@ -2,25 +2,25 @@
   "members": [
     {
       "id": 1,
-      "birth": "1970-09-21",
+      "birth": "1965-09-21",
       "avatar_url": "https://www.flaticon.com/premium-icon/icons/svg/805/805385.svg",
       "name": "Batman",
-      "email": "batman@batman.com",
+      "email": "batman@bat.com",
       "gender": "M",
       "blood": "O+",
-      "weight": "108",
-      "height": "195"
+      "weight": "105",
+      "height": "198"
     },
     {
-      "id": "[object Object]1",
+      "id": 2,
       "birth": "1950-09-21",
-      "avatar_url": "https://image.flaticon.com/icons/svg/695/695910.svg",
+      "avatar_url": "https://www.flaticon.com/premium-icon/icons/svg/1700/1700881.svg",
       "name": "Robin Hood",
-      "email": "robhood@hood.com",
+      "email": "robhood@rob.com",
       "gender": "M",
-      "blood": "A-",
-      "weight": "60",
-      "height": "170"
+      "blood": "AB-",
+      "weight": "65",
+      "height": "175"
     }
   ],
   "instructors": [
