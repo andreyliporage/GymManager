@@ -10,6 +10,17 @@
       "blood": "O+",
       "weight": "108",
       "height": "195"
+    },
+    {
+      "id": "[object Object]1",
+      "birth": "1950-09-21",
+      "avatar_url": "https://image.flaticon.com/icons/svg/695/695910.svg",
+      "name": "Robin Hood",
+      "email": "robhood@hood.com",
+      "gender": "M",
+      "blood": "A-",
+      "weight": "60",
+      "height": "170"
     }
   ],
   "instructors": [
