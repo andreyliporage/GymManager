@@ -1,6 +1,6 @@
 const fs = require('fs') // para guardar os dados 
 const data = require('../data.json')
-const {age, date} = require('../utils')
+const {date} = require('../utils')
 
 exports.index = function(req, res) {
     return res.render("members/index", {members: data.members})
@@ -18,7 +18,7 @@ exports.show = function(req, res) {
 
     const member = {
         ...foundMember, // espalhando o foundMember dentro do objeto (spread operator)
-        age: age(foundMember.birth),
+        birth: date(foundMember.birth).birthDay,
     }
 
     return res.render("members/show", {member})
@@ -33,6 +33,8 @@ exports.post = function(req, res) {
     // req.body funciona com "post"
 
     const keys = Object.keys(req.body)
+    // Object = constructor que é uma função que cria um objeto
+    // keys pega as chaves do formulário
 
     for(key of keys) {
         
@@ -43,16 +45,16 @@ exports.post = function(req, res) {
 
     birth = Date.parse(req.body.birth)
     let id = 1
-    const lastId = data.members[data.members.length - 1]
+    const lastMember = data.members[data.members.length - 1]
 
-    if (lastId) {
-        id = lastId + 1
+    if (lastMember) {
+        id = lastMember + 1
     }
 
     data.members.push({
-        ...req.body,
         id,
         birth,
+        ...req.body,
     })
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
@@ -60,8 +62,6 @@ exports.post = function(req, res) {
 
         return res.redirect("/members")
     })
-
-    //return res.send(req.body)
 }
 
 exports.edit =  function(req, res) {
@@ -75,7 +75,7 @@ exports.edit =  function(req, res) {
 
     const member = {
         ...foundMember,
-        birth: date(foundMember.birth)
+        birth: date(foundMember.birth).iso
     }
 
     return res.render("members/edit", {member})

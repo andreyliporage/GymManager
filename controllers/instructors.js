@@ -19,7 +19,7 @@ exports.show = function(req, res) {
     const instructor = {
         ...foundInstructor, // espalhando o foundInstructor dentro do objeto (spread operator)
         age: age(foundInstructor.birth),
-        services: foundInstructor.services.split(","),
+        services: foundInstructor.services.split(","), //Transforma string em array e vai quebrar o array na vírgula (",")
         created_at: new Intl.DateTimeFormat("pt-BT").format(foundInstructor.created_at),
     }
 
@@ -31,6 +31,8 @@ exports.post = function(req, res) {
     // req.body funciona com "post"
 
     const keys = Object.keys(req.body)
+    // Object = constructor que é uma função que cria um objeto
+    // keys pega todas as chaves do formulário
 
     for(key of keys) {
         
@@ -39,20 +41,20 @@ exports.post = function(req, res) {
         }
     }
 
-    let {avatar_url, birth, name, services, gender} = req.body
+    let {avatar_url, birth, name, services, gender} = req.body // desestruturação de objeto
 
     birth = Date.parse(birth)
-    const created_at = Date.now()
-    const id = Number(data.instructors.length + 1)
+    const created_at = Date.now() // constructor Date
+    const id = Number(data.instructors.length + 1)// É const pq não está na desestruturação
 
-    data.instructors.push({
-        id,
+    data.instructors.push({ // Acrescenta uma nova entrada sem apagar entradas antigas
+        id,// Não está na desestruturação pq não está no req.body
         avatar_url,
         name,
         birth,
         gender,
         services,
-        created_at,
+        created_at,// Não está na desestruturação pq não está no req.body
     })
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
@@ -75,7 +77,7 @@ exports.edit =  function(req, res) {
 
     const instructor = {
         ...foundInstructor,
-        birth: date(foundInstructor.birth)
+        birth: date(foundInstructor.birth).iso
     }
 
     return res.render("instructors/edit", {instructor})
