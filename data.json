@@ -1,15 +1,15 @@
 {
   "members": [
     {
+      "id": 1,
+      "birth": "1970-09-21",
       "avatar_url": "https://www.flaticon.com/premium-icon/icons/svg/805/805385.svg",
       "name": "Batman",
-      "email": "batman@batman",
-      "birth": 180489600000,
+      "email": "batman@batman.com",
       "gender": "M",
       "blood": "O+",
-      "weight": "110",
-      "height": "198",
-      "id": 1
+      "weight": "108",
+      "height": "195"
     }
   ],
   "instructors": [
